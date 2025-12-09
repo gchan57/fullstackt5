@@ -1,0 +1,15 @@
+node -> for backend
+express -> a node package that  is convinient than node
+FACT : node can be used for a full scale application (but not scalable)
+install nodemon , express: npm i nodemon,npm i express
+Files:
+    -> path.js {path basic};
+    -> os.js  {os basic};
+    -> main.js {fileoperation basic};
+    -> nodeserver {node based derver} -> node nodeserver.js;
+    1-> expresssserver.js {express based}                         
+    2-> router.js {like abstraction of express for easy calling }
+     
+    both 1,2 need to be updated in package.json under scripts change the replace file name
+    then npm run dev
+
