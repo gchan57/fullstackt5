@@ -14,12 +14,12 @@ router.post("/register",async(req,res)=>{
         password:hashPassword,
     });
     await user.save();
-    response.status(201).json({message:"USer Registered successfully"})
+    res.status(201).json({message:"USer Registered successfully"})
     
 })
 
 router.post("/login",async(req,res)=>{
-    const {emai,password}=req.body;
+    const {email,password}=req.body;
     const user=await User.findOne({email});
     if(!user){
         return res.status(400).json({message: "Wrong Password"});
@@ -31,6 +31,6 @@ router.post("/login",async(req,res)=>{
 
     const token=jwt.sign({id:user._id},process.env.JWT_SECRET);
     res.json({message: "Login Success",token});
-
-
 })
+
+module.exports= router;

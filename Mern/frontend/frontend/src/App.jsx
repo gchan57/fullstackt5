@@ -2,15 +2,21 @@ import { useState } from 'react'
 
 import './App.css'
 import Auth from './components/Auth'
+import Dashboard from './components/Dashboard'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   
 
   return (
-    <>
-    <h1 className='text-amber-300'>Hello World</h1>
-    <Auth/>
-    </>
+    <Routes>
+      <Route path="/" element={<Auth/>}/>
+      <Route element={<ProtectedRoute/>}>
+      <Route path="/dashboard" element={<Dashboard/>}/>
+      </Route>
+      <Route path="*" element={<Navigate to="/"/>}/>
+    </Routes>
   )
 }
 
